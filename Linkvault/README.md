@@ -27,13 +27,28 @@ A production‑grade URL‑shortening service built with **Express**, **TypeScri
 
 ## Running the Project
 
+### Local Development
 ```bash
 # Local development (requires .env with DB & Redis credentials)
 npm run dev
+```
 
-# Production build
+### Production Build
+```bash
 npm run build   # compiles TypeScript to ./dist
 npm start       # runs the compiled server
+```
+
+### Docker
+```bash
+# Build and run the container
+docker compose up --build
+
+# Or, using Docker directly:
+# Build the image
+docker build -t linkvault .
+# Run the container
+docker run -p 3000:3000 -e PORT=3000 linkvault
 ```
 
 The server starts on the port defined in `.env` (default `3000`).
